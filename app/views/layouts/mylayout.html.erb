@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- @titleというインスタンス変数を用意しておくことで各アクションごとにタイトルを設定できる -->
+    <title><%= title %></title>
+    <!-- sample.cssとsample.jsのみ読み込むためのタグのみ生成 -->
+    <%= stylesheet_link_tag "sample" %>
+    <%= javascript_include_tag "sample" %>
+</head>
+<body>
+    <!-- renderメソッドでレイアウトテンプレートを指定してレンダリングされたHTMLコードを書き出し -->
+    <!-- パーシャル（ビューテンプレート内に組み込めるビューの部品)を使用する -->
+    <!-- ローカル変数を使用するため、引数にオプションを指定する -->
+    <%= render :partial => "partials/myheader", :locals => {:title => "いっぱい楽しんでね"} %>
+    <%= yield %>
+
+<hr>
+<p>データベースに保存してある全レコード</p>
+<!-- @datasに保存した全レコードを表示する処理 -->
+<table>
+<% @datas.each do |data|%>
+<tr>
+    <td><%= data.name %></td>
+    <td><%= data.age%></td>
+    <td><%= data.tel%></td>
+    <td><%= data.mail%></td>
+</tr>
+<% end%>
+</table>
+
+<hr>
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Mail</th>
+    <th>Tel</th>
+</tr>
+<%= render :partial => "partials/mydata", :collection => @datas %>
+</table>
+        
+    <%= render "partials/myfooter" %>
+</body>
+<html>

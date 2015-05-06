@@ -1,4 +1,22 @@
 Testapp::Application.routes.draw do
+   #以下にルーティング(どのアドレスにアクセスしたらどれを呼び出すかを整理したもの)の設定が記述されている。
+   #ルート情報の記述方法
+   #get "コントローラー名/アクション名"
+   #post "コントローラー名/アクション名"
+   #match "コントローラ名/アクション名"
+   #アドレスの指定とは別のアクションに誘導する場合
+   #match "アドレスの指定" => "コントローラー名/アクション名"
+   
+  #"sample/index"というアドレスにgetでアクセスする。
+  #GET = HTTPのプロトコル。サーバーからデータを受け取るのに用いられる。 <=> PUT = フォーム送信などのようにサーバーにデータを送るのに用いる。
+  get "sample/index"
+  #新しく作成したentranceアクションのルーティングの設定を記述
+  get "sample/entrance"
+  #リダイレクト時に値を渡すアクションへのルーティング情報
+  get "sample/helo"
+  #POST送信でindexにアクセスする許可を追記　
+  post "sample/index"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
