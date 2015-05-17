@@ -9,13 +9,21 @@ Testapp::Application.routes.draw do
    
   #"sample/index"というアドレスにgetでアクセスする。
   #GET = HTTPのプロトコル。サーバーからデータを受け取るのに用いられる。 <=> PUT = フォーム送信などのようにサーバーにデータを送るのに用いる。
+  #新しく作成したアクションへのルーティング情報を記述
   get "sample/index"
-  #新しく作成したentranceアクションのルーティングの設定を記述
-  get "sample/entrance"
-  #リダイレクト時に値を渡すアクションへのルーティング情報
-  get "sample/helo"
+  #レコードの中身を表示するshowアクション
+  get "sample/show"
+  #レコードの中身を更新するupdateアクション
+  get "sample/update"
+  post "sample/update"
+  #レコードを検索するfindアクション
+  get "sample/find"
+  post "sample/find"
+
   #POST送信でindexにアクセスする許可を追記　
   post "sample/index"
+  #レコードを削除するdeleteアクション
+  get "sample/delete"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

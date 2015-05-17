@@ -1,0 +1,13 @@
+<table>
+    <form method="post" action="/sample/update">
+        <tr><th>ID</th><td><%= @result.id %></td></tr>
+        <input type ="hidden" name="id" value="<%= @result.id %>">
+        <tr><th>Name</th><td><input type="text" name="name" value="<%= @result.name %>"></td></tr>
+        <tr><th>Age</th><td><input type="text" name="age" value="<%= @result.age %>"></td></tr>
+        <tr><th>Mail</th><td><input type="text" name="mail" value="<%= @result.mail %>"></td></tr>
+        <tr><th>Tel</th><td><input type="text" name="tel" value="<%= @result.tel %>"></td></tr>
+        <tr><th></th><td><input type="submit" value="更新"></td></tr>
+    </form>
+</table>
+<hr/>
+<a href="/sample/index">ホーム</a>

@@ -1,20 +1,48 @@
-<%#
-ビューのテンプレートはERB(Embedded Ruby)という技術を使っている.
-ERB =　HTML内に特殊なタグを埋め込むことでRubyのスクリ<%#
-ビューのテンプレートはERB(Embedded Ruby)という技術を使っている.
-ERB =　HTML内に特殊なタグを埋め込むことでRubyのスクリプトを動かすことができる。
-ERBを使用してビューの中にロジック(処理)を記述することができるが、
-本来MVCアーキテクチャにおいては「ロジックはコントローラー、表示はビューで行う」と切り分けがされているため、
-ERBはビューでなければ処理できないものに対して使うのが好ましい。
-コントローラーを使ってサーバー側でメソッドにて必要な処理を行い、アクセスしたクライアントへ処理結果を表示している。（静的)
-またクライアントからサーバに何かを問い合わせ、その結果をサーバーからクライアントに返すという処理もできる(動的)
-
-%>
-
+<!-- レイアウトテンプレート(mylayout)に組み込むビューテンプレート -->
 
 <p>indexでERBのテストをしてみるよ☆</p>
-
+<a href="https://idobata.io/#/organization/yochiyochirb/room/meetups">idobata入り口</a>
 <hr />
+<form method="post" action="/sample/index">
+    <table>
+        <tr>
+            <th>NAME:</th>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <th>AGE:</th>
+            <td><input type-"text" name="age"></td>
+        </tr>
+        <tr>
+            <th>MAIL:</th>
+            <td><input type="text" name="mail"></td>
+        </tr>
+        <tr>
+            <th>TEL:</th>
+            <td><input type="text" name="tel"></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><input type="submit"></td>
+        </tr>
+        </table><form>
+<hr>
+<p>データベースに保存してある全レコード</p>
+<!-- @datasに保存した全レコードを表示する処理 -->
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Mail</th>
+    <th>Tel</th>
+    <th>Deletion</th>
+    <th>Update</th>
+</tr>
+<%= render :partial => "partials/mydata", :collection => @datas %>
+</table>
+
+<a href="/sample/find">レコードを検索</a>
 
 <!-- <%
 #スクリプトを実行する特殊タグ内に実行する処理を記述
@@ -23,36 +51,6 @@ ERBはビューでなければ処理できないものに対して使うのが�
 time = Time.now
 str = "現在の時刻は" + time.to_s + "だよ！！" #timeプロパティを文字列に変換
 %> -->
-<%#
-値を表示する特殊タグ
-ビューでのスクリプト処理は必ず実行部分と出力部分を分けて記述する
-%>
-<!-- ビューではコントローラークラスに用意されているインスタンス変数をそのまま利用できる -->
-<p><%= @str %></p>
-
-<!-- フォームを作成 -->
-<!-- indexアクションにPOST送信する -->
-<%= @msg%>
-
-<form method="post" action="/sample/index">
-    <input type="text" name="text1">
-    <input type="submit">
-</form>
-
-
-<a href="https://idobata.io/#/organization/yochiyochirb/room/meetups">idobata入り口</a>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

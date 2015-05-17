@@ -1,0 +1,17 @@
+<!-- レコードを検索するダイナミックファインダー(Rails4以降は削除予定)を利用したfindアクション用のビューテンプレート -->
+<table>
+    <form method="post" action="/sample/find">
+        <tr><th>Name:</th><td><input type="text" name="fstr"></td></tr>
+        <tr><th></th><td><input type="submit" value="検索"></td></tr>
+    </form>
+</table>
+<hr />
+検索結果
+<table>
+    <tr><th>ID</th><th>Name</th><th>Age</th><th>Mail</th><th>Tel</th><th>Deletion</th><th>Update</th></tr>
+    <!-- :collection = 指定された配列などのオブジェクトから順番に値を取り出し、
+        それをテンプレート名の変数に設定して指定のテンプレートをレンダリングする -->
+    <%= render :partial => "partials/mydata", :collection => @datas %> 
+</table>
+<hr />
+<a href="/sample/index">ホーム</a>

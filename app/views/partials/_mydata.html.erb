@@ -1,7 +1,10 @@
 <tr>
-    <td><%= mydata.id %></td>
+    <td><a href="/sample/show?id=<%= mydata.id %>"><%= mydata.id %></a></td>
     <td><%= mydata.name %></td>
     <td><%= mydata.age %></td>
     <td><%= mydata.mail%></td>
     <td><%= mydata.tel%></td>
+    <td><a href="javascript:void(0);" onclick="doDelete(<%= mydata.id %>);">
+        Delete</a></td>
+    <td><a href="/sample/update?id=<%= mydata.id %>">Update</a></td>
 </tr>

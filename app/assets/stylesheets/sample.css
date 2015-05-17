@@ -18,8 +18,9 @@ p.footer{
     font-size: 9pt;
     color: #6666aa;
 }
+
 #テーブル用のスタイルシートを用意
-table tr th {
+table tr th{
     background-color: #333399;
     color: #ffffff;
     padding: 5px;
@@ -29,6 +30,12 @@ table tr th {
 table tr td {
     background-color: #dddddd;
     color: #000066;
+    padding: 5px;
+    margin: 5px;
+}
+table tr th{
+    background-color: #333399;
+    color: #ffffff;
     padding: 5px;
     margin: 5px;
 }
