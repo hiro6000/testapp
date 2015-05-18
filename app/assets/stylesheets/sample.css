@@ -127,7 +127,7 @@ table tr th{
 }
 
 /*#######768px以上#########*/
-@media (max-device-width: 320px){
+@media and (min-device-width: 768px){
 /* BOX1とBOX2を横に並べる設定*/
 .boxA:after {
     content: "";
