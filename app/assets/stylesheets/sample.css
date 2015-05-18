@@ -11,15 +11,15 @@ body {
     background-size: cover;
 }
 
-h2 {
+/*h2 {*/
     background-color: #aaaaff;
     /*内側の余白*/
-    padding: 5px; 
+    padding: 5px;
     /*外側の余白(上、右、下、左)*/
     margin: 0px 0px 25px 0px;
     font-size: 30pt;
 
-}
+/*}*/
 
 p {
     font-size: 18pt;
