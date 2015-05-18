@@ -1,10 +1,24 @@
-h1 {
+@charset "UTF-8;"
+
+body {
+    margin :60px;
+    font-family: serif;
+    /*background: orange;*/
+    background-image: url(IMG_6952.JPG);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /*背景を固定*/
+    background-size: cover;
+}
+
+h2 {
     background-color: #aaaaff;
     /*内側の余白*/
     padding: 5px; 
     /*外側の余白(上、右、下、左)*/
     margin: 0px 0px 25px 0px;
     font-size: 30pt;
+
 }
 
 p {
@@ -16,7 +30,7 @@ p.footer{
     /*行揃えは右寄せ*/
     text-align: right;
     font-size: 9pt;
-    color: #6666aa;
+    color: #9966aa;
 }
 
 #テーブル用のスタイルシートを用意
@@ -38,4 +52,96 @@ table tr th{
     color: #ffffff;
     padding: 5px;
     margin: 5px;
+}
+
+/*以下、サイト制作用*/
+/*サイト名*/
+.site h1 a {
+    color: #000000;
+    text-decoration: none;
+}
+.site h1 {
+    margin: 0;
+    font-size: 30px;
+}
+/*ナビゲーション*/
+.menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.menu li a {
+    display: block;
+    padding: 5px;
+    color: #000000;
+    font-size: 14px;
+    text-decoration: none;
+}
+.menu li a:hover {
+    background-color: #eeeeee;
+}
+.menu ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.menu li {
+    float: left;
+    width: auto;
+}
+
+/*ヘッダー画像*/
+.topimg {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+/*お知らせ*/
+.news h1 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #666666;
+}
+.news ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.news li a {
+    display: block;
+    padding: 5px;
+    border-bottom: dotted 2px #dddddd;
+    color: #000000;
+    font-size: 14px;
+    text-decoration: none;
+}
+.news li a:hover {
+    background-color: #eeeeee;
+}
+.news time {
+    margin-right: 10px;
+    color: #888888;
+    font-weight: bold;
+}
+
+/*#######768px以上#########*/
+@media (min-width: 768px){
+/* BOX1とBOX2を横に並べる設定*/
+.boxA:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.box1 {
+    float: left;
+    width: 50%;
+}
+.box2{
+    float: left;
+    width: 50 %;
+}
+
+
 }

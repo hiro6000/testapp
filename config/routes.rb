@@ -19,11 +19,13 @@ Testapp::Application.routes.draw do
   #レコードを検索するfindアクション
   get "sample/find"
   post "sample/find"
-
   #POST送信でindexにアクセスする許可を追記　
   post "sample/index"
   #レコードを削除するdeleteアクション
   get "sample/delete"
+  
+  #add
+  get "sample/toppage"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

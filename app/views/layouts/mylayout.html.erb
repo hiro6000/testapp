@@ -8,12 +8,12 @@
     <!-- sample.cssとsample.jsのみ読み込むためのタグのみ生成 -->
     <%= stylesheet_link_tag "sample" %>
     <%= javascript_include_tag "sample" %>
-</head>
-<body>
     <!-- renderメソッドでレイアウトテンプレートを指定してレンダリングされたHTMLコードを書き出し -->
     <!-- パーシャル（ビューテンプレート内に組み込めるビューの部品)を使用する -->
     <!-- ローカル変数を使用するため、引数にオプションを指定する -->
     <%= render :partial => "partials/myheader", :locals => {:title => "いっぱい楽しんでね"} %>
+</head>
+<body>
     <%= yield %>
 </body>
      <%= render "partials/myfooter" %>

@@ -32,6 +32,9 @@ class SampleController < ApplicationController
     #findメソッドを利用して指定したid番号のレコードを検索して取り出す。
     #取り出されたオブジェクトはモデルクラスのインスタンスとして取得される。
     @result = Sample.find(params[:id])
+    
+    #画像表示
+    @picture = Picture.find(params[:id])
   end
   #レコードの中身を更新するupdateアクション
   def update
@@ -54,10 +57,10 @@ class SampleController < ApplicationController
     @title = "レコードを検索"
     @datas = [] #検索前は初期化
     if request.post? then
-      #ダイナミックファインダーメソッドを使って送信された文字列を含むレコードを検索
-      # @datas = Sample.find_all_by_name(params[:fstr])
-      arr = params[:fstr].split(',') #split = 引数として渡された文字で分割する
-      @datas = Sample.find_all_by_name(arr)
+      #whereメソッドを使って送信された文字列を含むレコードを検索
+      #SQLのlike演算子を使ってあいまい検索を行う
+      fstr = params[:fstr]
+      @datas = Sample.where("name like '%" + fstr + "%'")
     end
   end
   #レコードの中身を消すdeleteアクション
@@ -66,6 +69,9 @@ class SampleController < ApplicationController
     #レコードの中身を削除するモデルクラスのdestroyメソッド
     obj.destroy
     redirect_to :action => "index"
+  end
+  #add
+  def toppage
   end
 end
 

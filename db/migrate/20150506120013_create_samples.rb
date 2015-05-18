@@ -7,7 +7,7 @@ class CreateSamples < ActiveRecord::Migration
       t.integer :age
       t.string :mail
       t.string :tel
-      
+  
       #コードの作成や更新に関する日時の情報をレコードに自動記録する
       t.timestamps
     end
