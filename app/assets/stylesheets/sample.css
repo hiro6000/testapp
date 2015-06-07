@@ -1,17 +1,17 @@
 @charset "UTF-8;"
 
-body {
-    margin :60px;
+/*body {
+    margin:0;
     font-family: serif;
     /*background: orange;*/
-    background-image: url(IMG_6952.JPG);
+/*    background-image: url(IMG_6952.JPG);
     background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed; /*背景を固定*/
-    background-size: cover;
-}
+    background-position: center;*/
+    /*background-attachment: fixed;*//*背景を固定*/
+    /*background-size: cover;*/
+}*/
 
-/*h2 {*/
+h2 {
     background-color: #aaaaff;
     /*内側の余白*/
     padding: 5px;
@@ -19,7 +19,7 @@ body {
     margin: 0px 0px 25px 0px;
     font-size: 30pt;
 
-/*}*/
+}
 
 p {
     font-size: 18pt;
@@ -57,7 +57,7 @@ table tr th{
 /*以下、サイト制作用*/
 /*サイト名*/
 .site h1 a {
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
 }
 .site h1 {
@@ -72,8 +72,8 @@ table tr th{
 }
 .menu li a {
     display: block;
-    padding: 5px;
-    color: #000000;
+    padding: 10px 15px; /*リンクが機能する範囲*/
+    color: #ffffff;
     font-size: 14px;
     text-decoration: none;
 }
@@ -92,6 +92,7 @@ table tr th{
 
 /*ヘッダー画像*/
 .topimg {
+    margin:0;
     max-width: 100%;
     height: auto;
     vertical-align: bottom;
@@ -126,6 +127,38 @@ table tr th{
     font-weight: bold;
 }
 
+/*ボックスの左右*/
+.boxA, .box4, .box5{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/*ボックスの上下*/
+.boxA {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.box4 {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+/*boxAとbox4の背景*/
+.boxA{
+    background-color: #333333;
+}
+.box4{
+    background-color: #e8e8c4;
+}
+
+/*フッター*/
+footer {
+ /*   padding-left: 10px;
+    padding-right: 10px;*/
+    /*フッタをバーの形にする*/
+    background-color: #dddddd;
+   /* padding-top: 5px;*/
+
+}
+
 /*#######768px以上#########*/
 @media (min-width: 768px){
 /* BOX1とBOX2を横に並べる設定*/
@@ -136,11 +169,23 @@ table tr th{
 }
 .box1 {
     float: left;
-    width: 50%;
+    width: auto; /*ボックスの中身に合わせた横幅になる*/
 }
 .box2{
-    float: left;
-    width: 50 %;
+    float: right;　/*常に右寄せ*/
+    width: auto%;
 }
 
+}
+html,body {
+    height: 100%;
+    margin:0;
+    font-family: serif;
+   /* background: orange;*/
+    /*background-image: url(IMG_6952.JPG);*/
+    background-repeat: no-repeat;
+    background-position: center;
+    /*背景を固定*/
+    background-attachment: fixed;
+    background-size: cover;
 }

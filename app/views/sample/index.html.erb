@@ -43,6 +43,16 @@
 <%= render :partial => "partials/mydata", :collection => @datas %>
 </table>
 
+<!-- レコードのページが0以下のリンクは表示しない -->
+<% if @page > 0%>
+<a = href="/sample/index?page=<%=(@page - 1) %>">[<%= (@page-1) %>]</a>
+<% end %>
+[<%= @page %>]
+<!-- レコードの総数以上のページのリンクは表示しない -->
+<% if @record_count > (@page + 1) * @page_num%>
+<a = href="/sample/index?page=<%= (@page + 1) %>">[<%= (@page+1)%>]</a>
+<% end %>
+<br>
 <a href="/sample/find">レコードを検索</a>
 <a href="/sample/toppage">トップページ</a>
 
@@ -53,7 +63,11 @@
 time = Time.now
 str = "現在の時刻は" + time.to_s + "だよ！！" #timeプロパティを文字列に変換
 %> -->
-
+<!-- 
+タグの使い分け
+<% %> スクリプト実行タグ
+<%= %>　値出力タグ  
+-->
 
 
 

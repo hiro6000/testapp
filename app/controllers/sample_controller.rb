@@ -18,11 +18,17 @@ class SampleController < ApplicationController
       )
       obj.save
     end
+    #１ページあたりのレコードの表示数を決定
+    @page = params[:page].to_i
+    @page_num = 5
+    #検索されたレコードの数を算出
+    @record_count = Sample.where("id > 0").count
+    @datas = Sample.where("id > 0").order("name ASC").offset(@page * @page_num).limit(@page_num)
     
     #ローカル変数をコントローラーで作成し、レイアウトテンプレートに引き渡す
     @title = "ここは夢の国です"
     #Sampleモデルから全レコードの情報を取り出し、@datasに代入
-    @datas = Sample.all
+    # @datas = Sample.all
     #ローカル変数を引数として渡し、レンダリング
     render :layout => "mylayout", :locals => {:title => @title, :datas => @datas}
   end
@@ -60,7 +66,8 @@ class SampleController < ApplicationController
       #whereメソッドを使って送信された文字列を含むレコードを検索
       #SQLのlike演算子を使ってあいまい検索を行う
       fstr = params[:fstr]
-      @datas = Sample.where("name like '%" + fstr + "%'")
+      #メソッドチェーンでメソッドをつなげて記述.(ASC=昇順、DESC=降順)
+      @datas = Sample.where("name like ?","%" + fstr + "%").order("age ASC")
     end
   end
   #レコードの中身を消すdeleteアクション

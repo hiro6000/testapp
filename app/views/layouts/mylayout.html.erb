@@ -1,7 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
     "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="ja">
-    <head>
+<body>
+    <div id ="wrapper">
+        <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- @titleというインスタンス変数を用意しておくことで各アクションごとにタイトルを設定できる -->
     <title><%= @title %></title>
@@ -12,9 +14,12 @@
     <!-- パーシャル（ビューテンプレート内に組み込めるビューの部品)を使用する -->
     <!-- ローカル変数を使用するため、引数にオプションを指定する -->
     <%= render :partial => "partials/myheader", :locals => {:title => "いっぱい楽しんでね"} %>
-</head>
-<body>
+    </head>
+    <div id="contents">
     <%= yield %>
+    </div>
+    <footer id="footer">
+    <%= render "partials/myfooter" %>
+    </footer>
+    </div><!-- wrap -->
 </body>
-     <%= render "partials/myfooter" %>
-
